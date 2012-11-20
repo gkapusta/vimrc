@@ -70,3 +70,5 @@ au GUIEnter * simalt ~x
 
 colorscheme desert
 
+set guifont=Consolas:h10:cANSI
+
