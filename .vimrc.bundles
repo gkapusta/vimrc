@@ -1,9 +1,3 @@
-set nocompatible
-
-if has('win32') || has('win64')
-    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-endif
-
 " The next three lines ensure that the ~/.vim/bundle/ system works
 filetype off
 set rtp+=~/.vim/bundle/vundle
@@ -11,8 +5,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
-Bundle 'honza/snipmate-snippets'
 Bundle 'leshill/vim-json'
 Bundle 'pangloss/vim-javascript'
 
+filetype plugin indent on
