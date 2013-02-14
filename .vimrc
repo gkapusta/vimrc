@@ -74,8 +74,10 @@ set sidescrolloff=5
 set sidescroll=1
 
 set guioptions+=b      "Show horizontal scrollbar
+set guioptions-=T
 
-colorscheme desert
+let g:molokai_original = 1
+colorscheme molokai
 set guifont=Consolas:h10:cANSI
 
 " Plugins {
