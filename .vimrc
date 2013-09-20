@@ -78,7 +78,11 @@ set guioptions-=T
 
 let g:molokai_original = 1
 colorscheme molokai
-set guifont=Consolas:h10:cANSI
+if has('win32') || has('win64')
+    set guifont=Consolas:h10:cANSI
+elseif has('gui_gtk2')
+    set guifont=Ubuntu\ Mono\ 11
+endif
 
 " Plugins {
     " javascript {
