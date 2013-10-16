@@ -76,6 +76,8 @@ set sidescroll=1
 set guioptions+=b      "Show horizontal scrollbar
 set guioptions-=T
 
+let mapleader = ','
+
 let g:molokai_original = 1
 colorscheme molokai
 if has('win32') || has('win64')
@@ -145,9 +147,9 @@ endif
     " }
 
     " NerdTree {
-        map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-        map <leader>e :NERDTreeFind<CR>
-        nmap <leader>nt :NERDTreeFind<CR>
+        map <C-d> :NERDTreeToggle<CR>
+        nmap <leader>d :NERDTreeToggle<CR>
+        nmap <leader>f :NERDTreeFind<CR>
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.pyc','\~$', '\.swo$', '\.swp$','\.git', '\.hg', '\.svn','\.bzr']
         let NERDTreeChDirMode=0
@@ -160,8 +162,11 @@ endif
     
     " ctrlp {
         let g:ctrlp_working_path_mode = 'ra'
-        nnoremap <silent> <D-t> :CtrlP<CR>
-        nnoremap <silent> <D-r> :CtrlPMRU<CR>
+        nmap <leader>p :CtrlP<CR>
+        nmap <leader>b :CtrlPBuffer<CR>
+        nmap <leader>m :CtrlPMRU<CR>
+        nmap <leader>P :CtrlPClearCache<CR>:CtrlP<CR>
+
         let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$',
             \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
