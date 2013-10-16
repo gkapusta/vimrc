@@ -150,44 +150,34 @@ endif
         map <C-d> :NERDTreeToggle<CR>
         nmap <leader>d :NERDTreeToggle<CR>
         nmap <leader>f :NERDTreeFind<CR>
-        let NERDTreeShowBookmarks=1
-        let NERDTreeIgnore=['\.pyc','\~$', '\.swo$', '\.swp$','\.git', '\.hg', '\.svn','\.bzr']
+
         let NERDTreeChDirMode=0
         let NERDTreeQuitOnOpen=1
         let NERDTreeMouseMode=2
         let NERDTreeShowHidden=1
         let NERDTreeKeepTreeInNewTab=1
+        let g:NERDSpaceDelims=1
         let g:nerdtree_tabs_open_on_gui_startup=0
     " }
     
     " ctrlp {
-        let g:ctrlp_working_path_mode = 'ra'
         nmap <leader>p :CtrlP<CR>
         nmap <leader>b :CtrlPBuffer<CR>
-        nmap <leader>m :CtrlPMRU<CR>
         nmap <leader>P :CtrlPClearCache<CR>:CtrlP<CR>
+        
+        let g:ctrlp_working_path_mode = 'ra'
+        let g:ctrlp_switch_buffer = 'et'
+    " }
+    
+    " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher {
+        if executable('ag')
+            let g:ackprg = 'ag --nogroup --column'
 
-        let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-            \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+            " Use Ag over Grep
+            set grepprg=ag\ --nogroup\ --nocolor
 
-        " On Windows use "dir" as fallback command.
-        if has('win32') || has('win64')
-            let g:ctrlp_user_command = {
-                \ 'types': {
-                    \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-                    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-                \ },
-                \ 'fallback': 'dir %s /-n /b /s /a-d'
-            \ }
-        else
-            let g:ctrlp_user_command = {
-                \ 'types': {
-                    \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-                    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-                \ },
-                \ 'fallback': 'find %s -type f'
-            \ }
+            " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+            let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
         endif
     " }
 " }
