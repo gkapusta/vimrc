@@ -7,5 +7,5 @@ call mkdir "%BASE_DIR%\bundle"
 call mklink "%HOME%\_vimrc" "%BASE_DIR%\.vimrc"
 
 call git clone http://github.com/gmarik/vundle.git "%BASE_DIR%/bundle/vundle"
-call vim -u "%BASE_DIR%/.vimrc.bundles" +BundleInstall! +BundleClean +qall
+call vim -N -u "%BASE_DIR%/.vimrc.bundles" +BundleInstall! +BundleClean +qall
 
