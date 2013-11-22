@@ -86,6 +86,10 @@ elseif has('gui_gtk2')
     set guifont=Ubuntu\ Mono\ 11
 endif
 
+if has('gui_macvim')
+    autocmd VimLeave * macaction terminate:
+endif
+
 " Plugins {
     " javascript {
         let g:html_indent_inctags = "html,body,head,tbody"
